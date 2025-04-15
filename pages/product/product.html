@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../cart/navbar.css" />
+    <link rel="stylesheet" href="../footer/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <title id="page-title"></title>
+    <style>
+      body {
+        font-family: Verdana, sans-serif;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .details {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 600px;
+      }
+      .main-image {
+        max-width: 600px;
+        max-height: 500px;
+        border: 1px solid;
+        border-radius: 20px;
+        box-shadow: 10px 10px 5px #7a7676;
+        padding: 20px;
+      }
+      #main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 20px;
+      }
+      .product-images {
+        display: flex;
+        flex-flow: column;
+        gap: 10px;
+      }
+      .side-images {
+        display: flex;
+        gap: 10px;
+      }
+      .side-images-image {
+        border: 2px solid;
+        border-radius: 20px;
+      }
+      .side-images-image.active {
+        border: 4px solid #db4444;
+      }
+      .quantity button {
+        color: #fafafa;
+        background-color: #db4444;
+        border: none;
+        font-size: 20pt;
+        width: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .quantity button:hover,
+      .add-to-cart:hover {
+        background-color: #b83636;
+      }
+      .quantity input {
+        width: 50px;
+        height: 28px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .quantity {
+        display: flex;
+      }
+      .add-to-cart {
+        color: #fafafa;
+        margin-top: 30px;
+        padding: 15px;
+        background-color: #db4444;
+        border-radius: 5px;
+        border: none;
+        font-size: 14pt;
+        cursor: pointer;
+      }
+      .quantity-and-stars {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+      }
+      .stars {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+      }
+      #rating {
+        font-size: 20pt;
+        cursor: default;
+      }
+      .wishlist {
+        color: #e0e0e0;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #212325;
+        border-radius: 5px;
+        border: none;
+        font-size: 14pt;
+        cursor: pointer;
+      }
+      .wishlist:hover {
+        background-color: #000000;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+        border-bottom: 2px solid #db4444;
+      }
+      .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        font-size: 14pt;
+        border-bottom: 2px solid transparent;
+      }
+      .tab.active {
+        border-bottom: 2px solid #db4444;
+        font-weight: bold;
+      }
+      .tab-content {
+        display: none;
+        margin-top: 20px;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      .specifications,
+      .reviews {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .review {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar-container"></nav>
+    <div class="container">
+      <div class="product-images">
+        <div class="main-image">
+          <img id="main-image" src="" alt="" />
+        </div>
+        <div class="side-images">
+          <!-- pictures will be dynamically added here -->
+        </div>
+      </div>
+
+      <div class="details">
+        <div class="text-details">
+          <h2 id="title"></h2>
+          <hr />
+          <p id="description"></p>
+          <hr />
+          <h3 id="price"></h3>
+        </div>
+
+        <div class="quantity-and-stars">
+          <div class="quantity">
+            <label for="quantity"></label>
+            <button id="decrease" type="button" onclick="decrease()">-</button>
+            <input id="quantity" type="text" name="quantity" value="1" />
+            <button id="increase" type="button" onclick="increase()">+</button>
+          </div>
+
+          <div class="stars">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 120 24"
+              width="120"
+              height="24"
+            >
+              <!-- Empty Stars -->
+              <g fill="#rgb(35, 34, 34)">
+                <path
+                  d="M12 0l3.09 6.26L22 7.27l-5 4.87L18.18 20 12 16.9 5.82 20 7 12.14 2 7.27l6.91-1.01L12 0z"
+                ></path>
+                <path
+                  d="M36 0l3.09 6.26L46 7.27l-5 4.87L42.18 20 36 16.9 29.82 20 31 12.14 26 7.27l6.91-1.01L36 0z"
+                ></path>
+                <path
+                  d="M60 0l3.09 6.26L70 7.27l-5 4.87L66.18 20 60 16.9 53.82 20 55 12.14 50 7.27l6.91-1.01L60 0z"
+                ></path>
+                <path
+                  d="M84 0l3.09 6.26L94 7.27l-5 4.87L90.18 20 84 16.9 77.82 20 79 12.14 74 7.27l6.91-1.01L84 0z"
+                ></path>
+                <path
+                  d="M108 0l3.09 6.26L118 7.27l-5 4.87L114.18 20 108 16.9 101.82 20 103 12.14 98 7.27l6.91-1.01L108 0z"
+                ></path>
+              </g>
+
+              <!-- Filled Stars (gold) -->
+              <g fill="gold" clip-path="url(#clip)">
+                <path
+                  d="M12 0l3.09 6.26L22 7.27l-5 4.87L18.18 20 12 16.9 5.82 20 7 12.14 2 7.27l6.91-1.01L12 0z"
+                ></path>
+                <path
+                  d="M36 0l3.09 6.26L46 7.27l-5 4.87L42.18 20 36 16.9 29.82 20 31 12.14 26 7.27l6.91-1.01L36 0z"
+                ></path>
+                <path
+                  d="M60 0l3.09 6.26L70 7.27l-5 4.87L66.18 20 60 16.9 53.82 20 55 12.14 50 7.27l6.91-1.01L60 0z"
+                ></path>
+                <path
+                  d="M84 0l3.09 6.26L94 7.27l-5 4.87L90.18 20 84 16.9 77.82 20 79 12.14 74 7.27l6.91-1.01L84 0z"
+                ></path>
+                <path
+                  d="M108 0l3.09 6.26L118 7.27l-5 4.87L114.18 20 108 16.9 101.82 20 103 12.14 98 7.27l6.91-1.01L108 0z"
+                ></path>
+              </g>
+
+              <!-- Clip Path to Control Fill Percentage -->
+              <clipPath id="clip">
+                <rect x="0" y="0" width="0px" height="24"></rect>
+                <!-- Adjust width based on rating -->
+              </clipPath>
+            </svg>
+            <span id="rating"></span>
+          </div>
+        </div>
+
+        <button type="button" class="add-to-cart">Add to cart</button>
+        <button type="button" class="wishlist">Add to Wishlist</button>
+        <div class="tabs">
+          <div class="tab active" id="specifications-tab">Specifications</div>
+          <div class="tab" id="reviews-tab">Reviews</div>
+        </div>
+        <div class="tab-content active" id="specifications-content">
+          <div class="specifications">
+            <!-- Specifications will be dynamically added here -->
+          </div>
+        </div>
+        <div class="tab-content" id="reviews-content">
+          <div class="reviews">
+            <!-- Reviews will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer"></footer>
+    <script src="product.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../cart/navbar.js"></script>
+    <script src="../footer/footer.js"></script>
+  </body>
+</html>

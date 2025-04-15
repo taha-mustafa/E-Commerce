@@ -1,0 +1,44 @@
+       
+             .size-options {
+        display: flex;
+        gap: 8px;
+      }
+
+      .size-label {
+        border: 1px solid #ccc;
+        padding: 8px 12px;
+        background: white;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .size-label input {
+        display: none; /* Hide default radio */
+      }
+
+      .size-label:has(input:checked) {
+        background: red;
+        color: white;
+        border-color: red;
+      }
+
+       
+       
+        <div class="size-options">
+          <label class="size-label">
+            <input type="radio" name="size" value="XS" /> XS
+          </label>
+          <label class="size-label">
+            <input type="radio" name="size" value="S" /> S
+          </label>
+          <label class="size-label">
+            <input type="radio" name="size" value="M" /> M
+          </label>
+          <label class="size-label">
+            <input type="radio" name="size" value="L" /> L
+          </label>
+          <label class="size-label">
+            <input type="radio" name="size" value="XL" /> XL
+          </label>
+        </div>

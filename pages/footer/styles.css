@@ -1,0 +1,120 @@
+.footer {
+  background: black;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  margin-top: 2%;
+}
+
+.footer2 {
+  flex: auto;
+  min-width: 200px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.email-box {
+  display: flex;
+  margin-top: 10px;
+}
+
+.email-box input {
+  padding: 8px;
+  width: 70%;
+}
+
+.email-box button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.links {
+  display: grid;
+  gap: 10px;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: #ddd;
+}
+
+.copyright {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  color: gray;
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #333;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .footer2 {
+    min-width: 150px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .email-box {
+    flex-direction: column;
+  }
+
+  .email-box input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .email-box button {
+    padding: 8px 15px;
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  footer {
+    padding: 15px;
+    gap: 15px;
+    flex-direction: column;
+  }
+
+  .footer2 {
+    min-width: 100%;
+  }
+
+  .links {
+    gap: 8px;
+  }
+
+  .copyright {
+    font-size: 14px;
+  }
+}

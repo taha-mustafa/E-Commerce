@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="page-container">
+      <!-- Left Section: Image -->
+      <div class="left-section">
+        <img
+          src="../../images/WhatsApp Image 2025-04-06 at 11.32.19_5f85ad7a.jpg"
+          alt="E-Commerce Banner"
+          class="side-image"
+        />
+      </div>
+
+      <!-- Right Section: Form -->
+      <div class="right-section">
+        <div class="form-container">
+          <form id="signForm">
+            <div class="form-header">
+              <h1>Sign In</h1>
+            </div>
+
+            <div class="form-group">
+              <input
+                id="email"
+                class="input-field"
+                type="email"
+                placeholder="Username"
+                required
+              />
+              <i class="fa-solid fa-user input-icon"></i>
+            </div>
+
+            <div class="form-group">
+              <input
+                id="password"
+                type="password"
+                placeholder="Your password"
+                required
+                class="input-field"
+              />
+              <i
+                id="showPassword"
+                class="fa-solid fa-eye input-icon toggle-icon"
+              ></i>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="check" />
+              <label for="check">Remember Me</label>
+            </div>
+
+            <div class="notice-text">
+              <h5>
+                By signing in, you agree to E-Commerce's Conditions of Use and
+                Privacy Notice.
+              </h5>
+            </div>
+
+            <span class="error" id="wrong_data"></span>
+
+            <div class="form-actions">
+              <input
+                type="submit"
+                value="Login"
+                id="submitLogin"
+                class="submit-btn"
+              />
+            </div>
+
+            <div class="signup-link">
+              <p>
+                Don't have an account?
+                <a href="../RegisterPage/Registration.html">Sign up</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
