@@ -1,7 +1,13 @@
 # E-Commerce Website
 
 This project is a fully functional **E-Commerce Website** built using **HTML**, **CSS**, and **JavaScript**. It provides users with a seamless shopping experience, including features like product browsing, cart management, wishlist functionality, and user authentication.
-
+# Team Members
+- Taha Mustafa
+- Mustafa Ramadan https://github.com/mostafa-R
+- Ahmad Tarek https://github.com/Abotareq
+- Ahmad Atia https://github.com/Ahmed5Atia
+- Kerolos Gerges https://github.com/kerolosgerges
+- Omar Emad 
 ## Features
 
 ### General Features
